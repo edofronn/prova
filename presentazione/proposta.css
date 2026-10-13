@@ -1,0 +1,38 @@
+/* Pagina di presentazione per il titolare. Non fa parte del sito: NON pubblicare questa cartella. */
+.p-hero{display:grid;gap:2.5rem;padding:2.5rem 0 3.5rem;align-items:center}
+@media (min-width:900px){.p-hero{grid-template-columns:1.1fr 1fr;padding:4rem 0}}
+.p-hero h1{font-size:clamp(2.2rem,7vw,3.8rem);letter-spacing:-.01em}
+.p-hero .lead{font-size:1.2rem;color:var(--muted);max-width:32rem}
+.p-for{color:var(--ochre);font-family:var(--serif);font-size:1.1rem;margin-bottom:1rem}
+
+/* Smartphone con il sito vero dentro */
+.phone-stage{display:grid;place-items:center}
+.phone{width:324px;height:660px;border:10px solid #0d0804;border-radius:38px;overflow:hidden;background:var(--bg);box-shadow:0 0 0 2px #4a3526,0 24px 60px rgba(0,0,0,.55)}
+.phone iframe{width:390px;height:820px;border:0;transform:scale(.78);transform-origin:0 0;background:var(--bg)}
+.phone-cap{margin-top:1rem;color:var(--muted);font-size:.95rem;text-align:center;max-width:20rem}
+
+.p-sec{padding:3.25rem 0;border-top:1px solid var(--line)}
+.p-sec.alt{background:var(--bg2)}
+.benefits{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.25rem}
+@media (min-width:760px){.benefits{grid-template-columns:repeat(2,1fr);gap:1.5rem 3rem}}
+.benefits li{padding-left:1rem;border-left:4px solid var(--ochre)}
+.benefits h3{font-size:1.25rem;margin-bottom:.25rem}
+.benefits p{margin:0;color:var(--muted)}
+
+.incl{columns:2 16rem;margin:1.5rem 0 0;padding-left:1.2rem}
+.incl li{break-inside:avoid;margin-bottom:.5rem}
+
+.price{display:grid;gap:1rem;margin-top:1.5rem}
+@media (min-width:760px){.price{grid-template-columns:repeat(2,1fr)}}
+.price div{padding:1.1rem 1.25rem;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.price dt{color:var(--muted);font-size:.95rem}
+.price dd{margin:.2rem 0 0;font-family:var(--serif);font-size:1.3rem}
+
+.steps{margin:2rem 0 0;padding:0;list-style:none;display:grid;gap:1rem;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:3rem 1fr;gap:1rem;align-items:start}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;background:var(--ochre);color:var(--ochre-ink);font:700 1.3rem var(--serif)}
+.steps h3{margin:0 0 .2rem;font-size:1.2rem}
+.steps p{margin:0;color:var(--muted)}
+
+.cta{text-align:center}
+.cta .btn-row{justify-content:center;margin-top:1.5rem}

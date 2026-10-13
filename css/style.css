@@ -1,0 +1,182 @@
+/* Osteria al Gallo – anteprima restyling (bozza privata). Solo font di sistema, nessuna risorsa esterna. */
+:root{
+  --bg:#2a1b12;          /* terra bruciata */
+  --bg2:#37241a;         /* superficie */
+  --line:#5a4130;
+  --text:#f3e9d7;
+  --muted:#cdbb9f;
+  --ochre:#e0a83a;       /* giallo della pasta all'uovo */
+  --ochre-ink:#2a1b12;
+  --wine:#8b2632;        /* quadretti della tovaglia */
+  --paper:#f6efe0;
+  --paper-ink:#2a1b12;
+  --paper-muted:#5b4636;
+  --focus:#ffd479;
+  --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:1.0625rem/1.6 var(--sans)}
+img{max-width:100%;display:block}
+a{color:var(--ochre);text-underline-offset:3px}
+a:hover{color:#fff}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0 0 .5em;font-weight:700}
+h2{font-size:clamp(1.75rem,5vw,2.5rem)}
+h3{font-size:1.35rem}
+p{margin:0 0 1em}
+.wrap{width:min(100% - 2.5rem,68rem);margin-inline:auto}
+.narrow{max-width:42rem}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:.5rem;top:-4rem;background:var(--ochre);color:var(--ochre-ink);padding:.75rem 1rem;z-index:100;font-weight:700}
+.skip:focus{top:.5rem}
+.todo{background:#ffe9a8;color:#4a2a00;padding:0 .3em;border-radius:3px;font-weight:600;font-family:var(--sans)}
+.paper .todo{background:#ffe08a}
+
+/* Striscia anteprima */
+.preview-note{background:#ffe9a8;color:#3a2200;text-align:center;font-size:.9rem;padding:.5rem 1rem}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.site-header .wrap{display:flex;align-items:center;gap:1rem;min-height:56px}
+.brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--serif);font-weight:700;font-size:1.2rem;color:var(--text);text-decoration:none;white-space:nowrap}
+.brand img{height:36px;width:auto}
+.nav{margin-left:auto;display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:var(--text);text-decoration:none;padding:.75rem .7rem;white-space:nowrap;border-radius:6px;font-size:.98rem}
+.nav a:hover{background:var(--bg2);color:var(--ochre)}
+@media (max-width:640px){
+  .site-header .wrap{flex-direction:column;align-items:stretch;gap:0;padding-top:.4rem}
+  .nav{margin-left:0;margin-inline:-.7rem}
+}
+
+/* Pulsanti */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:52px;padding:.8rem 1.5rem;border-radius:8px;font:700 1.05rem var(--sans);text-decoration:none;border:2px solid var(--ochre);cursor:pointer}
+.btn-primary{background:var(--ochre);color:var(--ochre-ink)}
+.btn-primary:hover{background:#f0bd58;color:var(--ochre-ink)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--muted)}
+.btn-ghost:hover{border-color:var(--ochre);color:var(--ochre)}
+.btn-dark{background:var(--paper-ink);color:var(--paper);border-color:var(--paper-ink)}
+.btn-dark:hover{background:#4a3224;color:#fff}
+.btn-row{display:flex;flex-wrap:wrap;gap:.75rem}
+
+/* Hero */
+.hero{display:grid;gap:0}
+.hero-img{aspect-ratio:4/3;width:100%;height:auto;max-height:46vh;object-fit:cover;object-position:50% 62%}
+.hero-copy{padding:1.75rem 0 2.5rem;animation:rise .8s ease-out both}
+.hero-mark{height:84px;width:auto;margin-bottom:1rem}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero h1{font-size:clamp(2.6rem,11vw,5rem);letter-spacing:-.01em;margin-bottom:.3em}
+.hero .lead{font-size:1.2rem;color:var(--muted);max-width:30rem}
+.today{display:inline-block;margin:0 0 1.5rem;padding:.4rem .8rem;border:1px solid var(--line);border-radius:999px;font-size:.95rem;background:var(--bg2)}
+@media (min-width:860px){
+  .hero{grid-template-columns:1fr 1.1fr;align-items:stretch;min-height:34rem}
+  .hero-copy{align-self:center;padding:3rem 3rem 3rem max(1.25rem,calc((100vw - 68rem)/2));}
+  .hero-img{aspect-ratio:auto;height:100%;max-height:none;min-height:34rem}
+  .hero-order{order:2}
+}
+
+/* Tovaglia a quadretti */
+.gingham{height:22px;background-color:#f6efe0;background-image:
+  linear-gradient(90deg,rgba(139,38,50,.55) 50%,transparent 50%),
+  linear-gradient(rgba(139,38,50,.55) 50%,transparent 50%);
+  background-size:22px 22px}
+
+section{padding:3.5rem 0}
+.section-intro{color:var(--muted);max-width:38rem}
+
+/* Orari */
+.hours{background:var(--bg2);border-block:1px solid var(--line)}
+.hours-grid{display:grid;gap:2rem}
+@media (min-width:760px){.hours-grid{grid-template-columns:1.2fr 1fr;align-items:start}}
+table.orari{border-collapse:collapse;width:100%;font-size:1.1rem}
+.orari th,.orari td{padding:.9rem .5rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.orari th{font-family:var(--serif);font-weight:700;width:45%}
+.orari tr.is-today{background:rgba(224,168,58,.14)}
+.orari tr.is-today th::after{content:" (oggi)";font:400 .9rem var(--sans);color:var(--ochre)}
+.closed{color:var(--muted)}
+
+/* Menù su carta */
+.paper{background:var(--paper);color:var(--paper-ink)}
+.paper a{color:#7a1d28}
+.paper .section-intro{color:var(--paper-muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.5rem 0 2rem}
+.tab{min-height:48px;padding:.6rem 1.1rem;border:2px solid var(--paper-ink);background:transparent;color:var(--paper-ink);border-radius:8px;font:700 1rem var(--sans);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--paper-ink);color:var(--paper)}
+.menu-panel[hidden]{display:none}
+.menu-panel h3.panel-title{font-size:1.6rem}
+html:not(.js) .tabs{display:none}
+.menu-cat{margin:2rem 0 0}
+.menu-cat h4{font:700 1.2rem var(--serif);margin:0 0 .5rem;padding-bottom:.4rem;border-bottom:2px solid var(--wine)}
+.dishes{list-style:none;margin:0;padding:0}
+.dish{padding:.85rem 0;border-bottom:1px dashed #c9b79b}
+.dish-head{display:flex;justify-content:space-between;gap:1rem;font-weight:700}
+.dish-name{font-family:var(--serif);font-size:1.12rem}
+.dish-desc{margin:.15rem 0 0;color:var(--paper-muted)}
+.dish-all{margin:.25rem 0 0;font-size:.95rem;color:var(--paper-muted)}
+.allergen-box{margin-top:2.5rem;padding:1.25rem;border:2px solid var(--paper-ink);border-radius:8px;background:#fff9ea}
+.allergen-box p{margin-bottom:.6rem}
+.allergen-box details summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center}
+.allergen-list{columns:2 14rem;margin:.5rem 0 0;padding-left:1.4rem}
+.allergen-list li{break-inside:avoid;margin-bottom:.2rem}
+.menu-meta{font-size:.95rem;color:var(--paper-muted)}
+
+/* Galleria */
+.gallery{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,17rem),1fr))}
+.shot{padding:0;border:0;background:none;cursor:zoom-in;border-radius:8px;overflow:hidden;display:block;width:100%}
+.shot img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .3s}
+.shot:hover img{transform:scale(1.03)}
+.slot{aspect-ratio:4/3;border:2px dashed var(--muted);border-radius:8px;display:grid;place-items:center;text-align:center;padding:1rem;color:var(--muted)}
+dialog.lightbox{border:0;padding:0;background:transparent;max-width:min(96vw,60rem);max-height:96vh;color:var(--text)}
+dialog.lightbox::backdrop{background:rgba(10,5,2,.88)}
+.lightbox img{max-height:80vh;width:auto;margin:auto;border-radius:6px}
+.lightbox p{text-align:center;margin:.75rem 1rem}
+.lightbox .btn{display:flex;margin:0 auto}
+.photo-credit{font-size:.92rem;color:var(--muted);margin-top:1rem}
+
+/* Storia */
+.story{background:var(--bg2);border-block:1px solid var(--line)}
+.story-grid{display:grid;gap:1.5rem;align-items:center}
+.story-mark{height:150px;width:auto}
+@media (min-width:760px){.story-grid{grid-template-columns:auto 1fr;gap:3rem}.story-mark{height:220px}}
+
+/* Servizi */
+.chips{list-style:none;margin:0 0 2rem;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
+.chips li{padding:.55rem 1rem;border:1px solid var(--line);border-radius:999px;background:var(--bg2)}
+.two{display:grid;gap:2rem}
+@media (min-width:760px){.two{grid-template-columns:1fr 1fr}}
+
+/* Dove siamo */
+address{font-style:normal;font-size:1.15rem;line-height:1.7}
+.contact-list{list-style:none;margin:1.25rem 0 1.5rem;padding:0;display:grid;gap:.4rem}
+.contact-list a{display:inline-block;padding:.35rem 0;font-weight:700;font-size:1.1rem}
+.small{font-size:.92rem;color:var(--muted)}
+
+/* Footer */
+.site-footer{background:#1d120b;border-top:1px solid var(--line);padding:3rem 0 6.5rem;font-size:.96rem}
+.site-footer h2{font-size:1.2rem}
+.foot-grid{display:grid;gap:2rem}
+@media (min-width:760px){.foot-grid{grid-template-columns:1.3fr 1fr}.site-footer{padding-bottom:3rem}}
+.foot-links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+.foot-links a{display:inline-block;padding:.5rem 0}
+.biz{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.2rem .9rem}
+.biz dt{color:var(--muted)}
+.biz dd{margin:0}
+
+/* Pagine legali (pagine separate) */
+.page{padding:3rem 0 4rem}
+.page h1{font-size:clamp(2rem,7vw,3rem);margin-bottom:.4em}
+.doc{max-width:46rem}
+.doc h3{font-size:1.1rem;margin-top:1.75rem;font-family:var(--sans)}
+.doc ul{padding-left:1.2rem}
+.doc li{margin-bottom:.35rem}
+.back{display:inline-block;padding:.6rem 0;margin-bottom:1rem}
+.site-footer.compact{padding:2rem 0}
+
+/* Barra mobile */
+.mobile-bar{position:fixed;inset:auto 0 0 0;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:.5rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom));background:rgba(29,18,11,.97);border-top:1px solid var(--line)}
+.mobile-bar .btn{min-height:54px;padding:.5rem}
+@media (min-width:760px){.mobile-bar{display:none}}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.shot img{transition:none}.hero-copy{animation:none}}
