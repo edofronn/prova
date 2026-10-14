@@ -1,3 +1,2 @@
-# ANTEPRIMA: non indicizzare. Da sostituire con le regole vere al momento della pubblicazione.
 User-agent: *
 Disallow: /
